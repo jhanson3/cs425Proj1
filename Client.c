@@ -19,11 +19,20 @@ int main(){
         return 1;
     }
     
+    // Initialize  sockaddr_in data structure
+    server_addr.sin_family = AF_NET;
+    server_addr.sin_port = htons(2000);
+    server_addr.sin_addr.s_addr = inet_addr("127.0.0.1");
+    
     // Connect to the server
     if (connect(s, (struct sockaddr_in *)&server_addr, sizeof(server_addr))<0){
         fprintf(stderr, "ERROR: Cannot connect/n");
         return 1;
     }
+    
+    send(s, "Hello", strlen("Hello"), 0);
+    
+    close(s);
     
     
     
