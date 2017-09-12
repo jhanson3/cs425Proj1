@@ -36,7 +36,7 @@ int main() {
     listen(s_socket, 3);
     
     // Accept any connection
-    c = sizeof(struct sockaddr_in);
+    client_addr = sizeof(struct sockaddr_in);
     
     client_sock = accept(s_socket, (struct sockaddr *)&client, (socklen_t*)&client_addr);
     if (client_sock < 0) {
