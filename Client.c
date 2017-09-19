@@ -17,7 +17,7 @@ int main(int argc, char * argv[]){
   int i;
   int length;
   int MAX_length=1024;
-  int port_num;
+  int port_num=0;
   char* ip=argv[1];
   struct sockaddr_in server_addr;
   char *message;
@@ -39,7 +39,7 @@ int main(int argc, char * argv[]){
   
   // Initialize  sockaddr_in data structure
   server_addr.sin_family = AF_INET;
-  server_addr.sin_port = htons(22074);
+  server_addr.sin_port = htons(port_num);
   server_addr.sin_addr.s_addr = inet_addr(ip);
 
   // Connect to the server
